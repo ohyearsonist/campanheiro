@@ -1,6 +1,7 @@
 # Campanheiro
 
-<img src="./assets/./assets/img/readme/readme-banner.png" style="align-self:center; justify-self: center;" width=auto />
+<img src="./assets/img/readme/readme-banner.png" style="align-self:center; justify-self: center;" width=auto />
+
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
 Um gerenciador de campanhas de RPG, escrito na Godot Engine.
