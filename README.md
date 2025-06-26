@@ -81,3 +81,4 @@ Isto significa que:
 ## Atribuições
 
 - [Lucid Icon Pack](https://leo-red.itch.io/lucid-icon-pack)
+- [Shantell Sans Font](https://shantellsans.com)
