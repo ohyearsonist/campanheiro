@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://box72qcpwi5o3"]
+
+[ext_resource type="Texture2D" uid="uid://3rx3l2gg3pxa" path="res://assets/img/logo/horizontal/blue.svg" id="1_28pxh"]
+[ext_resource type="Texture2D" uid="uid://ckrivrhnjcckb" path="res://assets/img/placeholders/profile-pic.png" id="2_tkrb2"]
+
+[node name="Control" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -561.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_28pxh")
+expand_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(84, 84)
+layout_mode = 2
+size_flags_horizontal = 10
+color = Color(0.152476, 0.152476, 0.152476, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+texture = ExtResource("2_tkrb2")
+expand_mode = 3
