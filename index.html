@@ -8,17 +8,37 @@
   </head>
   <body>
     <h1>Campanheiro</h1>
-    <p>
-      Olá viajante! Este é um webapp que te ajuda a ver e editar fichas de
-      Númeno RPG. Aqui, todas as fichas são salvas como arquivos
-      <code>.json</code> no seu dispositivo, e você pode selecionar esse arquivo
-      para abrir no Campanheiro. Caso você ainda não tenha esse arquivo, você
-      pode baixar um arquivo base para editar aqui no botão abaixo. Boa
-      jogatina!
-    </p>
-    <label for="sheetUpload" id="sheetUploadLabel">Analisar Ficha</label>
-    <input type="file" name="sheetUpload" id="sheetUpload" accept=".json" />
-    <button id="baseFile">Baixar ficha base</button>
+    <div id="intro">
+      <p>
+        Olá viajante! Este é um webapp que te ajuda a ver e editar fichas de
+        Númeno RPG. Aqui, todas as fichas são salvas como arquivos
+        <code>.json</code> no seu dispositivo, e você pode selecionar esse
+        arquivo para abrir no Campanheiro. Caso você ainda não tenha esse
+        arquivo, você pode baixar um arquivo base para editar aqui no botão
+        abaixo. Boa jogatina!
+      </p>
+      <label for="sheetUpload" id="sheetUploadLabel">Analisar Ficha</label>
+      <input type="file" name="sheetUpload" id="sheetUpload" accept=".json" />
+      <button id="baseFile">Baixar ficha base</button>
+    </div>
+    <main>
+      <div id="charInfo">
+        <div>
+          <input type="text" name="charName" id="charName" />
+          <span>
+            <input type="text" name="charClass" id="charClass" />
+            <input type="text" name="charLevel" id="charLevel" />
+            <p>&nbsp;-&nbsp;</p>
+            <input type="text" name="charSpecies" id="charSpecies" />
+          </span>
+        </div>
+        <img src="" alt="" id="charPicture" onclick="changeImage()" />
+      </div>
+      <span>
+        <button id="saveSheet">Salvar personagem</button>
+        <button id="sendToGM">Enviar para o mestre</button>
+      </span>
+    </main>
     <footer>
       <p>v0.0.0</p>
       <p>Made with &lt;3 by Calien</p>

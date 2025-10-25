@@ -1,105 +1,233 @@
-@import url('https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap");
 
 :root {
-    --background-color: #fefefe;
-    --text-color: #0f0f0f;
+  --background-color: #fefefe;
+  --text-color: #0f0f0f;
 }
 
 html {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
-html, body {
-    width: auto;
-    height: 100%;
-    margin: 0;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: "Neuton";
-}
-
+html,
 body {
-    padding-right: 1em;
-    padding-left: 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: auto;
+  height: 100%;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Neuton";
 }
 
-h1 {
-    font-size: 2em;
-    margin: 0;
+body,
+#intro,
+main {
+  padding-right: 1em;
+  padding-left: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-p {
-    font-size: 1.2em;
-    max-width: 70vw;
+/* ========== INTRO =========== */
+
+#intro h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+#intro p {
+  font-size: 1.2em;
+  max-width: 70vw;
 }
 
 #sheetUpload {
-    opacity: 0;
+  opacity: 0;
 }
 
 #sheetUploadLabel {
-    width: 10em;
-    height: 2em;
+  width: 10em;
+  height: 2em;
 
-    background-color: var(--background-color);
-    border-radius: .8em;
-    border: var(--text-color) 0.25em solid;
+  background-color: var(--background-color);
+  border-radius: 0.8em;
+  border: var(--text-color) 0.25em solid;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    font-family: "Neuton";
-    font-size: 1.3em;
-    font-weight: bold;
-    color: var(--text-color);
-    text-decoration: none;
+  font-family: "Neuton";
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
 
-    cursor: pointer;
-    
-    transition: 150ms;
+  cursor: pointer;
+
+  transition: 150ms;
 }
 
 #sheetUploadLabel:hover {
-    background-color: var(--text-color);
-    color: var(--background-color);
+  background-color: var(--text-color);
+  color: var(--background-color);
 }
 
 #baseFile {
-    width: auto;
-    height: 1em;
+  width: auto;
+  height: 1em;
 
-    background-color: var(--background-color);
-    border: none;
-    border-bottom: var(--text-color) 0.15em solid;
+  background-color: var(--background-color);
+  border: none;
+  border-bottom: var(--text-color) 0.15em solid;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    font-family: "Neuton";
-    font-size: 1.1em;
-    font-weight: bold;
-    color: var(--text-color);
-    text-decoration: none;
+  font-family: "Neuton";
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
-footer {
-    position:absolute;
-    bottom: 0;
-    padding: 1em;
+/* ============================================================================ */
+
+/* =========== MAIN =========== */
+
+main {
+  width: 100%;
+}
+
+input {
+  font-family: "Neuton";
+  font-size: 1.1em;
+  font-weight: normal;
+
+  border: none;
+  height: 100%;
+}
+
+input[type="text"]:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  width: auto;
+  max-width: none;
+  overflow: visible;
+  text-align: left;
+}
+
+#charInfo {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#charName {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+#charInfo div {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+}
+
+#charInfo div span {
+  display: flex;
+}
+
+#charInfo div span p {
+    margin: 0;
+}
+
+#charPicture {
+  height: 5em;
+  border-radius: 100%;
+  border: var(--text-color) 0.25em solid;
+}
+
+main span {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+#saveSheet {
+  width: 10em;
+  height: 2em;
+
+  background-color: var(--background-color);
+  border-radius: 0.8em;
+  border: var(--text-color) 0.25em solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Neuton";
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: 150ms;
+}
+
+#saveSheet:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+#sendToGM {
+  width: 10em;
+  height: 2em;
+
+  background-color: var(--background-color);
+  border-radius: 0.8em;
+  border: var(--text-color) 0.25em solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Neuton";
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: 150ms;
+}
+
+#sendToGM:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+/* ============================================================================ */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 footer p {
-    margin: 0;
+  margin: 0;
 }

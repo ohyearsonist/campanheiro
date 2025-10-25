@@ -4,6 +4,7 @@
     "class": "Classe",
     "species": "Espécie",
     "level": 1,
+    "picture": "",
     "stats": {
       "STR": 0,
       "CHA": 0,
