@@ -3,13 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>Campanheiro</title>
   </head>
   <body>
-    <h1>Campanheiro - v0.0.0</h1>
-    <input type="file" name="sheetUpload" id="sheetUpload" />
-    <main></main>
+    <h1>Campanheiro</h1>
+    <p>
+      Olá viajante! Este é um webapp que te ajuda a ver e editar fichas de
+      Númeno RPG. Aqui, todas as fichas são salvas como arquivos
+      <code>.json</code> no seu dispositivo, e você pode selecionar esse arquivo
+      para abrir no Campanheiro. Caso você ainda não tenha esse arquivo, você
+      pode baixar um arquivo base para editar aqui no botão abaixo. Boa
+      jogatina!
+    </p>
+    <label for="sheetUpload" id="sheetUploadLabel">Analisar Ficha</label>
+    <input type="file" name="sheetUpload" id="sheetUpload" accept=".json" />
+    <button id="baseFile">Baixar ficha base</button>
+    <footer>
+      <p>v0.0.0</p>
+      <p>Made with &lt;3 by Calien</p>
+    </footer>
   </body>
   <script src="./main.js"></script>
 </html>

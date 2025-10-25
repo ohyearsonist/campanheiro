@@ -1,0 +1,34 @@
+{
+  "character": {
+    "name": "Nome do seu Personagem",
+    "class": "Classe",
+    "species": "Espécie",
+    "level": 1,
+    "stats": {
+      "STR": 0,
+      "CHA": 0,
+      "INS": 0,
+      "AGI": 0,
+      "INT": 0,
+      "destiny": 10,
+      "life": 10,
+      "lifeDMN": 0,
+      "lifeDMX": 0,
+      "sanity": 10,
+      "sanityDMN": 0,
+      "sanityDMX": 0,
+      "luckDie": 20,
+      "speed": 18,
+      "armor": 0,
+      "inspiration": 0,
+      "abilities": []
+    },
+    "talents": {},
+    "inventory": {}
+  },
+  "campaign": {
+    "name": "Nome da Sua Campanha",
+    "GM": "Nome do(a/e) Mestre",
+    "GMsEmail": "example@gmail.com"
+  }
+}

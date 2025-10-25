@@ -1,4 +1,12 @@
 let fileInput = document.getElementById("sheetUpload");
+let baseFileButton = document.getElementById("baseFile");
+
+baseFileButton.onclick = () => {
+    var link = document.createElement("a");
+    link.download = "nome do seu personagem.json";
+    link.href = "./baseSheet.json";
+    link.click();
+}
 
 function loadSheet(sheetFile) {
    sheetData = JSON.parse(sheetFile);
