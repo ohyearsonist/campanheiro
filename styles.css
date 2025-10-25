@@ -150,6 +150,7 @@ input[type="text"]:focus {
 
 #charPicture {
   height: 5em;
+  width: 5em;
   border-radius: 100%;
   border: var(--text-color) 0.25em solid;
 }
