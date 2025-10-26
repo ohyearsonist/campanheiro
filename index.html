@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,8 +32,297 @@
             <input type="text" name="charSpecies" id="charSpecies" />
           </span>
         </div>
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2015%2F10%2F05%2F22%2F37%2Fblank-profile-picture-973460_960_720.png&f=1&nofb=1&ipt=a0532cbe0cf96386e011dbceab28bac442431ef99998cfd11d7272151b6b7897" alt="" id="charPicture" onclick="changeImage()" />
+        <img
+          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2015%2F10%2F05%2F22%2F37%2Fblank-profile-picture-973460_960_720.png&f=1&nofb=1&ipt=a0532cbe0cf96386e011dbceab28bac442431ef99998cfd11d7272151b6b7897"
+          alt=""
+          id="charPicture"
+          onclick="changeImage()"
+        />
       </div>
+      <nav>
+        <a id="statsLink">Stats</a>
+        <a id="skillsLink">Talentos e Habilidades</a>
+        <a id="inventoryLink">Inventário</a>
+        <a id="campaignLink">Campanha</a>
+      </nav>
+      <div id="stats">
+        <div id="circle">
+          <ul id="mainTraits">
+            <li>
+              <input type="text" name="statSTR" id="statSTR" />
+              <label class="statLabel" for="statSTR">Força</label>
+            </li>
+            <li>
+              <input type="text" name="statCHA" id="statCHA" />
+              <label class="statLabel" for="statCHA">Carisma</label>
+            </li>
+            <li>
+              <input type="text" name="statINS" id="statINS" />
+              <label class="statLabel" for="statINS">Instinto</label>
+            </li>
+            <li>
+              <input type="text" name="statINT" id="statINT" />
+              <label class="statLabel" for="statINT">Inteligência</label>
+            </li>
+            <li>
+              <input type="text" name="statAGI" id="statAGI" />
+              <label class="statLabel" for="statAGI">Agilidade</label>
+            </li>
+          </ul>
+          <ul id="destiny">
+            <li class="destinyPoint">
+              <svg
+                width="51"
+                height="51"
+                viewBox="0 0 51 51"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M26.1919 6.57761L30.3218 20.1469L43.8921 24.2778L47.0356 25.2348L43.8921 26.1919L30.3218 30.3217L26.1919 43.8921L25.2349 47.0356L24.2778 43.8921L20.147 30.3217L6.57764 26.1919L3.43408 25.2348L6.57764 24.2778L20.147 20.1469L24.2778 6.57761L25.2349 3.43405L26.1919 6.57761Z"
+                  stroke="black"
+                  stroke-width="2"
+                />
+              </svg>
+            </li>
+            <li class="destinyPoint">
+              <svg
+                width="51"
+                height="51"
+                viewBox="0 0 51 51"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M26.1919 6.57761L30.3218 20.1469L43.8921 24.2778L47.0356 25.2348L43.8921 26.1919L30.3218 30.3217L26.1919 43.8921L25.2349 47.0356L24.2778 43.8921L20.147 30.3217L6.57764 26.1919L3.43408 25.2348L6.57764 24.2778L20.147 20.1469L24.2778 6.57761L25.2349 3.43405L26.1919 6.57761Z"
+                  stroke="black"
+                  stroke-width="2"
+                />
+              </svg>
+            </li>
+            <li class="destinyPoint">
+              <svg
+                width="51"
+                height="51"
+                viewBox="0 0 51 51"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M26.1919 6.57761L30.3218 20.1469L43.8921 24.2778L47.0356 25.2348L43.8921 26.1919L30.3218 30.3217L26.1919 43.8921L25.2349 47.0356L24.2778 43.8921L20.147 30.3217L6.57764 26.1919L3.43408 25.2348L6.57764 24.2778L20.147 20.1469L24.2778 6.57761L25.2349 3.43405L26.1919 6.57761Z"
+                  stroke="black"
+                  stroke-width="2"
+                />
+              </svg>
+            </li>
+            <li class="destinyPoint">
+              <svg
+                width="51"
+                height="51"
+                viewBox="0 0 51 51"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M26.1919 6.57761L30.3218 20.1469L43.8921 24.2778L47.0356 25.2348L43.8921 26.1919L30.3218 30.3217L26.1919 43.8921L25.2349 47.0356L24.2778 43.8921L20.147 30.3217L6.57764 26.1919L3.43408 25.2348L6.57764 24.2778L20.147 20.1469L24.2778 6.57761L25.2349 3.43405L26.1919 6.57761Z"
+                  stroke="black"
+                  stroke-width="2"
+                />
+              </svg>
+            </li>
+            <li class="destinyPoint">
+              <svg
+                width="51"
+                height="51"
+                viewBox="0 0 51 51"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M26.1919 6.57761L30.3218 20.1469L43.8921 24.2778L47.0356 25.2348L43.8921 26.1919L30.3218 30.3217L26.1919 43.8921L25.2349 47.0356L24.2778 43.8921L20.147 30.3217L6.57764 26.1919L3.43408 25.2348L6.57764 24.2778L20.147 20.1469L24.2778 6.57761L25.2349 3.43405L26.1919 6.57761Z"
+                  stroke="black"
+                  stroke-width="2"
+                />
+              </svg>
+            </li>
+            <li class="destinyPoint">
+              <svg
+                width="51"
+                height="51"
+                viewBox="0 0 51 51"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M26.1919 6.57761L30.3218 20.1469L43.8921 24.2778L47.0356 25.2348L43.8921 26.1919L30.3218 30.3217L26.1919 43.8921L25.2349 47.0356L24.2778 43.8921L20.147 30.3217L6.57764 26.1919L3.43408 25.2348L6.57764 24.2778L20.147 20.1469L24.2778 6.57761L25.2349 3.43405L26.1919 6.57761Z"
+                  stroke="black"
+                  stroke-width="2"
+                />
+              </svg>
+            </li>
+            <li class="destinyPoint">
+              <svg
+                width="51"
+                height="51"
+                viewBox="0 0 51 51"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M26.1919 6.57761L30.3218 20.1469L43.8921 24.2778L47.0356 25.2348L43.8921 26.1919L30.3218 30.3217L26.1919 43.8921L25.2349 47.0356L24.2778 43.8921L20.147 30.3217L6.57764 26.1919L3.43408 25.2348L6.57764 24.2778L20.147 20.1469L24.2778 6.57761L25.2349 3.43405L26.1919 6.57761Z"
+                  stroke="black"
+                  stroke-width="2"
+                />
+              </svg>
+            </li>
+            <li class="destinyPoint">
+              <svg
+                width="51"
+                height="51"
+                viewBox="0 0 51 51"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M26.1919 6.57761L30.3218 20.1469L43.8921 24.2778L47.0356 25.2348L43.8921 26.1919L30.3218 30.3217L26.1919 43.8921L25.2349 47.0356L24.2778 43.8921L20.147 30.3217L6.57764 26.1919L3.43408 25.2348L6.57764 24.2778L20.147 20.1469L24.2778 6.57761L25.2349 3.43405L26.1919 6.57761Z"
+                  stroke="black"
+                  stroke-width="2"
+                />
+              </svg>
+            </li>
+            <li class="destinyPoint">
+              <svg
+                width="51"
+                height="51"
+                viewBox="0 0 51 51"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M26.1919 6.57761L30.3218 20.1469L43.8921 24.2778L47.0356 25.2348L43.8921 26.1919L30.3218 30.3217L26.1919 43.8921L25.2349 47.0356L24.2778 43.8921L20.147 30.3217L6.57764 26.1919L3.43408 25.2348L6.57764 24.2778L20.147 20.1469L24.2778 6.57761L25.2349 3.43405L26.1919 6.57761Z"
+                  stroke="black"
+                  stroke-width="2"
+                />
+              </svg>
+            </li>
+            <li class="destinyPoint">
+              <svg
+                width="51"
+                height="51"
+                viewBox="0 0 51 51"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M26.1919 6.57761L30.3218 20.1469L43.8921 24.2778L47.0356 25.2348L43.8921 26.1919L30.3218 30.3217L26.1919 43.8921L25.2349 47.0356L24.2778 43.8921L20.147 30.3217L6.57764 26.1919L3.43408 25.2348L6.57764 24.2778L20.147 20.1469L24.2778 6.57761L25.2349 3.43405L26.1919 6.57761Z"
+                  stroke="black"
+                  stroke-width="2"
+                />
+              </svg>
+            </li>
+          </ul>
+        </div>
+        <div id="lifebar">
+          <span id="lifeline"></span>
+          <svg class="lifePoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="lifePoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="lifePoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="lifePoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="lifePoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="lifePoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="lifePoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="lifePoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="lifePoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="lifePoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <div class="DMContainer">
+            <input type="text" name="statsLifeDMN" id="statsLifeDMN">
+            <label for="statsLifeDMN" class="statLabel">DMN</label>
+          </div>
+          <div class="DMContainer">
+            <input type="text" name="statsLifeDMX" id="statsLifeDMX">
+            <label for="statsLifeDMX" class="statLabel">DMX</label>
+          </div>
+          <p>Vida</p>
+        </div>
+        <div id="sanitybar">
+          <span id="sanityline"></span>
+          <svg class="sanityPoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="sanityPoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="sanityPoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="sanityPoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="sanityPoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="sanityPoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="sanityPoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="sanityPoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="sanityPoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <svg class="sanityPoint" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
+            <circle r="45" cx="50" cy="50" fill="red" />
+          </svg>
+          <div class="DMContainer">
+            <input type="text" name="statsSanityDMN" id="statsSanityDMN">
+            <label for="statsSanityDMN" class="statLabel">DMN</label>
+          </div>
+          <div class="DMContainer">
+            <input type="text" name="statsSanityDMX" id="statsSanityDMX">
+            <label for="statsSanityDMX" class="statLabel">DMX</label>
+          </div>
+          <p>Sanidade</p>
+        </div>
+        <div id="statsProfDie">
+          <!-- TODO -->
+        </div>
+        <div id="otherStats">
+          <input type="text" name="statsLuckDie" id="statsLuckDie">
+          <label for="statsLuckDie" class="statLabel">Dado de Sorte</label>
+          <input type="text" name="statsSpeed" id="statsSpeed">
+          <label for="statsSpeed" class="statLabel">Velocidade</label>
+          <input type="text" name="statsArmor" id="statsArmor">
+          <label for="statsArmor" class="statLabel">Armadura</label>
+          <input type="text" name="statsInspiration" id="statsInspiration">
+          <label for="statsInspiration" class="statLabel">Inspiração</label>
+        </div>
+      </div>
+      <div id="skills"></div>
+      <div id="inventory"></div>
+      <div id="campaign"></div>
       <span>
         <button id="saveSheet">Salvar personagem</button>
         <button id="sendToGM">Enviar para o mestre</button>

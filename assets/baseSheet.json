@@ -22,7 +22,23 @@
       "speed": 18,
       "armor": 0,
       "inspiration": 0,
-      "abilities": []
+      "abilities": {
+        "acrobacia": false,
+        "análise": false,
+        "animais": false,
+        "arcana": false, 
+        "coordenação": false,
+        "esmague": false,
+        "imobilização": false,
+        "intimidação": false,
+        "lembrança": false,
+        "levante": false,
+        "mentira": false,
+        "percepção": false,
+        "persuasão": false,
+        "reflexo": false,
+        "silêncio": false
+      }
     },
     "talents": {},
     "inventory": {}

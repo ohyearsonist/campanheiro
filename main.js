@@ -12,6 +12,61 @@ function hideIntro() {
   main.style.display = "flex";
 }
 
+let statsPage = document.getElementById("stats");
+let statsLink = document.getElementById("statsLink");
+let skillsPage = document.getElementById("skills");
+let skillsLink = document.getElementById("skillsLink");
+let inventoryPage = document.getElementById("inventory");
+let inventoryLink = document.getElementById("inventoryLink");
+let campaignPage = document.getElementById("campaign");
+let campaignLink = document.getElementById("campaignLink");
+
+campaignPage.style.display = "none";
+skillsPage.style.display = "none";
+inventoryPage.style.display = "none";
+statsLink.style.fontWeight = "bold";
+
+statsLink.addEventListener("click", () => {
+  statsPage.style.display = "flex";
+  campaignPage.style.display = "none";
+  skillsPage.style.display = "none";
+  inventoryPage.style.display = "none";
+  statsLink.style.fontWeight = "bold";
+  campaignLink.style.fontWeight = "normal";
+  inventoryLink.style.fontWeight = "normal";
+  skillsLink.style.fontWeight = "normal";
+});
+skillsLink.addEventListener("click", () => {
+  skillsPage.style.display = "flex";
+  campaignPage.style.display = "none";
+  statsPage.style.display = "none";
+  inventoryPage.style.display = "none";
+  skillsLink.style.fontWeight = "bold";
+  statsLink.style.fontWeight = "normal";
+  inventoryLink.style.fontWeight = "normal";
+  campaignLink.style.fontWeight = "normal";
+});
+inventoryLink.addEventListener("click", () => {
+  inventoryPage.style.display = "flex";
+  campaignPage.style.display = "none";
+  skillsPage.style.display = "none";
+  statsPage.style.display = "none";
+  inventoryLink.style.fontWeight = "bold";
+  statsLink.style.fontWeight = "normal";
+  campaignLink.style.fontWeight = "normal";
+  skillsLink.style.fontWeight = "normal";
+});
+campaignLink.addEventListener("click", () => {
+  campaignPage.style.display = "flex";
+  statsPage.style.display = "none";
+  skillsPage.style.display = "none";
+  inventoryPage.style.display = "none";
+  campaignLink.style.fontWeight = "bold";
+  statsLink.style.fontWeight = "normal";
+  inventoryLink.style.fontWeight = "normal";
+  skillsLink.style.fontWeight = "normal";
+});
+
 let allTextInputs = document.querySelectorAll('input[type="text"]');
 allTextInputs.forEach((i) => {
   i.addEventListener("input", resizeInput);
@@ -27,26 +82,26 @@ function resizeInput() {
 }
 
 function changeImage() {
-    let a = document.createElement("input");
-    a.type = "file"
-    a.accept = "image/*"
-    a.onchange = () => {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            sheetData.character.picture = e.target.result;
-            loadCharPicture();
-        }
-        for (const file of a.files) {
-            reader.readAsDataURL(file);
-        }
+  let a = document.createElement("input");
+  a.type = "file";
+  a.accept = "image/*";
+  a.onchange = () => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      sheetData.character.picture = e.target.result;
+      loadCharPicture();
+    };
+    for (const file of a.files) {
+      reader.readAsDataURL(file);
     }
-    a.click()
+  };
+  a.click();
 }
 
 baseFileButton.onclick = () => {
   var link = document.createElement("a");
   link.download = "nome do seu personagem.json";
-  link.href = "./baseSheet.json";
+  link.href = "./assets/baseSheet.json";
   link.click();
 };
 
@@ -69,11 +124,9 @@ function setField(field, value) {
 }
 
 function loadCharPicture() {
-    try {
-        document.getElementById("charPicture").remove();
-    } catch (e) {
-        
-    }
+  try {
+    document.getElementById("charPicture").remove();
+  } catch (e) {}
   let parent = document.getElementById("charInfo");
   let pic = document.createElement("img");
   pic.id = "charPicture";
@@ -101,21 +154,23 @@ let sendButton = document.getElementById("sendToGM");
 saveButton.addEventListener("click", saveSheet);
 
 function download(data, filename, type) {
-    var file = new Blob([data], {type: type});
-    if (window.navigator.msSaveOrOpenBlob) // IE10+
-        window.navigator.msSaveOrOpenBlob(file, filename);
-    else { // Others
-        var a = document.createElement("a"),
-                url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function() {
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);  
-        }, 0); 
-    }
+  var file = new Blob([data], { type: type });
+  if (window.navigator.msSaveOrOpenBlob)
+    // IE10+
+    window.navigator.msSaveOrOpenBlob(file, filename);
+  else {
+    // Others
+    var a = document.createElement("a"),
+      url = URL.createObjectURL(file);
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }, 0);
+  }
 }
 
 function saveSheet() {
@@ -126,5 +181,9 @@ function saveSheet() {
     }
   }
 
-  download(JSON.stringify(sheetData), sheetData.character.name+".json", "text")
+  download(
+    JSON.stringify(sheetData),
+    sheetData.character.name + ".json",
+    "text"
+  );
 }

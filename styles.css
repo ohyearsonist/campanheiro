@@ -19,11 +19,16 @@ body {
   font-family: "Neuton";
 }
 
-body,
-#intro,
-main {
+body {
   padding-right: 1em;
   padding-left: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#intro,
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,6 +106,7 @@ main {
 
 main {
   width: 100%;
+  justify-content: flex-start;
 }
 
 input {
@@ -120,6 +126,21 @@ input[type="text"]:focus {
   max-width: none;
   overflow: visible;
   text-align: left;
+}
+
+nav {
+  display: flex;
+  min-width: 60vw;
+  justify-content: space-between;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+nav a {
+  text-decoration: underline;
+  font-size: 1.4em;
+  font-weight: normal;
+  cursor: pointer;
 }
 
 #charInfo {
@@ -220,9 +241,12 @@ main span {
 /* ============================================================================ */
 
 footer {
-  position: absolute;
+  position: sticky;
+  background-color: var(--background-color);
+  width: 100%;
   bottom: 0;
-  padding: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
