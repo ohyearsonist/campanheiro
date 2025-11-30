@@ -204,6 +204,10 @@ function loadSheet() {
     document.getElementById("talents").appendChild(t);
   });
 
+  setField("campGM", sheetData.campaign.GM);
+  setField("campName", sheetData.campaign.name);
+  setField("campGMsEmail", sheetData.campaign.GMsEmail);
+
   allTextInputs.forEach((i) => {
     resizeInput.call(i);
   });
@@ -262,6 +266,8 @@ function updateSheet() {
       sheetData["character"][property] = alteredElements[i].value;
     } else if (alteredElements[i].id.slice(0, 4) == "stat") {
       sheetData["character"]["stats"][property] = alteredElements[i].value;
+    } else if (alteredElements[i].id.slice(0, 4) == "camp") {
+      sheetData["campaign"][property] = alteredElements[i].value;
     }
   }
 
