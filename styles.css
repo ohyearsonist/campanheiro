@@ -349,6 +349,21 @@ main span {
   cursor: pointer;
 }
 
+#otherStats {
+  display: flex;
+  justify-content: space-around;
+  place-items: center;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+#otherStats div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 #skills {
   flex-direction: row;
   width: 90%;
