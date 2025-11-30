@@ -10,6 +10,8 @@ main.style.display = "none";
 function hideIntro() {
   intro.style.display = "none";
   main.style.display = "flex";
+  document.getElementsByTagName("body").item(0).style.justifyContent =
+    "flex-start";
 }
 
 let statsPage = document.getElementById("stats");
@@ -137,11 +139,53 @@ function loadCharPicture() {
 
 function loadSheet() {
   let char = sheetData.character;
+
   setField("charName", char.name);
   setField("charClass", char.class);
   setField("charLevel", char.level);
   setField("charSpecies", char.species);
   loadCharPicture();
+
+  setField("statSTR", char.stats.STR);
+  setField("statINS", char.stats.INS);
+  setField("statINT", char.stats.INT);
+  setField("statCHA", char.stats.CHA);
+  setField("statAGI", char.stats.AGI);
+
+  setField("statLifeDMN", char.stats.lifeDMN);
+  setField("statLifeDMX", char.stats.lifeDMX);
+  setField("statSanityDMN", char.stats.sanityDMN);
+  setField("statSanityDMX", char.stats.sanityDMX);
+
+  setField("statLuckDie", char.stats.luckDie);
+  setField("statSpeed", char.stats.speed);
+  setField("statArmor", char.stats.armor);
+  setField("statInspiration", char.stats.inspiration);
+
+  allAbilities = document.querySelectorAll("input[type='checkbox']");
+
+  allAbilities.forEach((i) => {
+    let property = (i.id + " ").slice(4, -1).toLowerCase();
+    if (sheetData.character.stats.abilities[property]) {
+      i.checked = true;
+    }
+  });
+
+  Object.keys(sheetData.character.talents).forEach((e) => {
+    let t = document.createElement("div");
+
+    let title = document.createElement("input");
+    title.type = "text";
+    title.value = sheetData.character.talents[e].title;
+    title.style = "font-weight: bold;";
+    t.appendChild(title);
+
+    let desc = document.createElement("textarea");
+    desc.value = sheetData.character.talents[e].desc;
+    t.appendChild(desc);
+
+    document.getElementById("talents").appendChild(t);
+  });
 
   allTextInputs.forEach((i) => {
     resizeInput.call(i);
@@ -152,6 +196,27 @@ let saveButton = document.getElementById("saveSheet");
 let sendButton = document.getElementById("sendToGM");
 
 saveButton.addEventListener("click", saveSheet);
+sendButton.addEventListener("click", sendSheet);
+
+function sendSheet() {
+  updateSheet();
+  let link = document.createElement("a");
+  link.href =
+    "mailto:" +
+    (sheetData.campaign.GMsEmail +
+      "?subject=" +
+      sheetData.campaign.name +
+      "%2C%20" +
+      sheetData.character.name +
+      "%20-%20Ficha%20atualizada&body=Ol%C3%A1%20" +
+      sheetData.campaign.GM +
+      "!%0A%0AEu%20atualizei%20minha%20ficha%20de%20" +
+      sheetData.campaign.name +
+      "%2C%20e%20aqui%20est%C3%A1%20ela%20em%20formato%20.json.%20Boa%20mestreagem!%0A%0A---%0A%0AN%C3%83O%20MEXER%20A%20PARTIR%20DESSE%20PONTO!%0A%0A" +
+      JSON.stringify(sheetData).replace(/\n/g, "").replace(/:/g, "%3A"));
+  console.log(link.href);
+  link.click();
+}
 
 function download(data, filename, type) {
   var file = new Blob([data], { type: type });
@@ -173,13 +238,29 @@ function download(data, filename, type) {
   }
 }
 
-function saveSheet() {
+function updateSheet() {
   for (const i in alteredElements) {
     let property = (alteredElements[i].id + " ").slice(4, -1).toLowerCase();
     if (alteredElements[i].id.slice(0, 4) == "char") {
       sheetData["character"][property] = alteredElements[i].value;
+    } else if (alteredElements[i].id.slice(0, 4) == "stat") {
+      sheetData["character"]["stats"][property] = alteredElements[i].value;
     }
   }
+
+  allAbilities = document.querySelectorAll("input[type='checkbox']");
+  allAbilities.forEach((i) => {
+    let property = (i.id + " ").slice(4, -1).toLowerCase();
+    if (i.checked) {
+      sheetData.character.stats.abilities[property] = true;
+    } else {
+      sheetData.character.stats.abilities[property] = false;
+    }
+  });
+}
+
+function saveSheet() {
+  updateSheet();
 
   download(
     JSON.stringify(sheetData),

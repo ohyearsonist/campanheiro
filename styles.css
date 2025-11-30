@@ -25,6 +25,15 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
+}
+
+a {
+  color: var(--text-color);
+}
+
+input {
+  text-align: left;
 }
 
 #intro,
@@ -182,6 +191,43 @@ main span {
     width: 100%;
 }
 
+#skills {
+  flex-direction: row;
+  width: 90%;
+}
+
+#skills h3 {
+  font-size: 1.6em;
+  margin-top: 0.2em;
+  margin-bottom: 0.4em;
+}
+
+#abilities {
+  flex-direction: column;
+  width: 20%;
+}
+
+#abilities input {
+  height: auto;
+}
+
+#talents {
+  margin-left: 2em;
+  width: 100%;
+}
+
+#talents div {
+  display: flex;
+  flex-direction: column;
+}
+
+#talents textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  field-sizing: content;
+}
+
 #saveSheet {
   width: 10em;
   height: 2em;
@@ -256,3 +302,4 @@ footer {
 footer p {
   margin: 0;
 }
+
