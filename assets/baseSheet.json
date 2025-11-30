@@ -40,8 +40,8 @@
         "silêncio": false
       }
     },
-    "talents": {},
-    "inventory": {}
+    "talents": [],
+    "inventory": []
   },
   "campaign": {
     "name": "Nome da Sua Campanha",

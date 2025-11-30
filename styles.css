@@ -394,6 +394,75 @@ main span {
   width: 100%;
 }
 
+#talentsHeader {
+  display: flex;
+  justify-content: start;
+  place-items: center;
+  flex-direction: row !important;
+}
+
+#talentsHeader h3 {
+  width: fit-content;
+}
+
+#createTalent {
+  width: 4em;
+  height: 1.7em;
+  margin-left: 1em;
+
+  background-color: var(--background-color);
+  border-radius: 0.8em;
+  border: var(--text-color) 0.2em solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Neuton";
+  font-size: 0.8em;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: 150ms;
+}
+
+#createTalent:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+.deleteBtn {
+  width: 4em;
+  height: 1.7em;
+  margin-bottom: 1em;
+
+  background-color: var(--background-color);
+  border-radius: 0.8em;
+  border: var(--text-color) 0.2em solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Neuton";
+  font-size: 0.8em;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: 150ms;
+}
+
+.deleteBtn:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
 #talents div {
   display: flex;
   flex-direction: column;
@@ -410,6 +479,49 @@ main span {
   display: flex;
   flex-direction: column;
   width: 90%;
+}
+
+#inventoryHeader {
+  display: flex;
+  justify-content: start;
+  place-items: center;
+  flex-direction: row !important;
+}
+
+#inventoryHeader h3 {
+  width: fit-content;
+  font-size: 1.6em;
+  margin-top: 0.2em;
+  margin-bottom: 0.4em;
+}
+
+#createItem {
+  width: 4em;
+  height: 1.7em;
+  margin-left: 1em;
+
+  background-color: var(--background-color);
+  border-radius: 0.8em;
+  border: var(--text-color) 0.2em solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Neuton";
+  font-size: 0.8em;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: 150ms;
+}
+
+#createItem:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
 }
 
 #inventory div {

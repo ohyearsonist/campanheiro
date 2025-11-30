@@ -91,6 +91,91 @@ for (let i = 0; i < destinyDiv.children.length; i++) {
   });
 }
 
+let createItemBtn = document.getElementById("createItem");
+createItemBtn.addEventListener("click", () => {
+  let t = document.createElement("div");
+
+  let title = document.createElement("input");
+  title.type = "text";
+  title.value = "Título";
+  title.style = "font-weight: bold;";
+  t.appendChild(title);
+
+  let category = document.createElement("input");
+  category.type = "text";
+  category.value = "Categoria";
+  category.style = "font-style: italic;";
+  t.appendChild(title);
+
+  let desc = document.createElement("input");
+  desc.type = "text";
+  desc.value = "X";
+  t.appendChild(desc);
+
+  let btn = document.createElement("button");
+  btn.innerHTML = "Apagar";
+  btn.className = "deleteBtn";
+  btn.addEventListener("click", (e) => {
+    console.log("function start");
+    updateSheet();
+    let index = Array.prototype.indexOf.call(
+      e.currentTarget.parentElement.parentElement.children,
+      e.currentTarget.parentElement
+    );
+    console.log(index);
+    sheetData.character.inventory.splice(index - 1, 1);
+    console.log(sheetData)
+    e.currentTarget.parentElement.remove();
+    updateSheet();
+  });
+  t.appendChild(btn);
+
+  let newItem = { item: "", category: "", desc: "" };
+  newItem.item = title.value;
+  newItem.desc = desc.value;
+  newItem.category = category.value;
+  sheetData.character.inventory.push(newItem);
+
+  document.getElementById("inventory").appendChild(t);
+});
+
+let createTalentBtn = document.getElementById("createTalent");
+createTalentBtn.addEventListener("click", () => {
+  let t = document.createElement("div");
+
+  let title = document.createElement("input");
+  title.type = "text";
+  title.value = "Título";
+  title.style = "font-weight: bold;";
+  t.appendChild(title);
+
+  let desc = document.createElement("textarea");
+  desc.value = "X";
+  t.appendChild(desc);
+
+  let btn = document.createElement("button");
+  btn.innerHTML = "Apagar";
+  btn.className = "deleteBtn";
+  btn.addEventListener("click", (e) => {
+    updateSheet();
+    let index = Array.prototype.indexOf.call(
+      e.currentTarget.parentElement.parentElement.children,
+      e.currentTarget.parentElement
+    );
+    sheetData.character.talents.splice(index - 1, 1);
+    e.currentTarget.parentElement.remove();
+    updateSheet();
+  });
+  t.appendChild(btn);
+
+  let newTalent = { title: "", desc: "" };
+  newTalent.title = title.value;
+  newTalent.desc = desc.value;
+  sheetData.character.talents.push(newTalent);
+
+  document.getElementById("talents").appendChild(t);
+});
+
 function resizeInput() {
   this.style.width = this.value.length + "ch";
 }
@@ -238,6 +323,21 @@ function loadSheet() {
     desc.value = sheetData.character.talents[e].desc;
     t.appendChild(desc);
 
+    let btn = document.createElement("button");
+    btn.innerHTML = "Apagar";
+    btn.className = "deleteBtn";
+    btn.addEventListener("click", (e) => {
+      updateSheet();
+      let index = Array.prototype.indexOf.call(
+        e.currentTarget.parentElement.parentElement.children,
+        e.currentTarget.parentElement
+      );
+      sheetData.character.talents.splice(index - 1, 1);
+      e.currentTarget.parentElement.remove();
+      updateSheet();
+    });
+    t.appendChild(btn);
+
     document.getElementById("talents").appendChild(t);
   });
 
@@ -263,6 +363,21 @@ function loadSheet() {
     }
     desc.value = sheetData.character.inventory[e].desc;
     t.appendChild(desc);
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Apagar";
+    btn.className = "deleteBtn";
+    btn.addEventListener("click", (e) => {
+      updateSheet();
+      let index = Array.prototype.indexOf.call(
+        e.currentTarget.parentElement.parentElement.children,
+        e.currentTarget.parentElement
+      );
+      sheetData.character.inventory.splice(index - 1, 1);
+      e.currentTarget.parentElement.remove();
+      updateSheet();
+    });
+    t.appendChild(btn);
 
     document.getElementById("inventory").appendChild(t);
   });
