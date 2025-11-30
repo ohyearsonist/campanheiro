@@ -183,12 +183,54 @@ nav a {
   width: 5em;
   border-radius: 100%;
   border: var(--text-color) 0.25em solid;
+  cursor: pointer;
 }
 
 main span {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+}
+
+#stats {
+  display: flex;
+  flex-direction: column;
+}
+
+#stats #circle {
+  display: flex;
+  flex-direction: column;
+}
+
+#stats #circle #mainTraits {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+}
+
+#stats #circle #mainTraits li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+  width: 5em;
+}
+
+#stats #circle #mainTraits li input {
+  font-size: 2em;
+}
+
+#stats #circle #destiny {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+}
+
+#stats #circle #destiny li {
+  list-style-type: none;
 }
 
 #skills {

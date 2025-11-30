@@ -79,6 +79,19 @@ allTextInputs.forEach((i) => {
   });
 });
 
+let destinyDiv = document.getElementById("destiny");
+for (let i = 0; i < destinyDiv.children.length; i++) {
+  const e = destinyDiv.children[i];
+  e.addEventListener("click", () => {
+    if (e.children[0].children[0].style.fill !== "black") {
+      e.children[0].children[0].style.fill = "black"
+    } else {
+      e.children[0].children[0].style.fill = "none"
+    }
+
+  })
+}
+
 function resizeInput() {
   this.style.width = this.value.length + "ch";
 }
@@ -161,6 +174,10 @@ function loadSheet() {
   setField("statSpeed", char.stats.speed);
   setField("statArmor", char.stats.armor);
   setField("statInspiration", char.stats.inspiration);
+
+  for (let i = 0; i < char.stats.destiny; i++) {
+    destinyDiv.children[i].click();
+  }
 
   allAbilities = document.querySelectorAll("input[type='checkbox']");
 
@@ -257,6 +274,14 @@ function updateSheet() {
       sheetData.character.stats.abilities[property] = false;
     }
   });
+
+  dCounter = 0;
+  for (let i = 0; i < destinyDiv.children.length; i++) {
+    if (destinyDiv.children[i].children[0].children[0].style.fill == "black") {
+      dCounter++;
+    }
+  }
+  sheetData.character.stats.destiny = dCounter;
 }
 
 function saveSheet() {
