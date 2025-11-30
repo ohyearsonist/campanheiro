@@ -84,12 +84,11 @@ for (let i = 0; i < destinyDiv.children.length; i++) {
   const e = destinyDiv.children[i];
   e.addEventListener("click", () => {
     if (e.children[0].children[0].style.fill !== "black") {
-      e.children[0].children[0].style.fill = "black"
+      e.children[0].children[0].style.fill = "black";
     } else {
-      e.children[0].children[0].style.fill = "none"
+      e.children[0].children[0].style.fill = "none";
     }
-
-  })
+  });
 }
 
 function resizeInput() {
@@ -150,6 +149,27 @@ function loadCharPicture() {
   parent.appendChild(pic);
 }
 
+function setBar(e) {
+  let barPointArray = e.getElementsByTagName("a");
+  for (let i = 0; i < barPointArray.length; i++) {
+    const element = barPointArray[i];
+    element.children[0].children[0].style.fill = "white";
+    element.children[0].children[0].style.stroke = "black";
+    element.children[0].children[0].style.strokeWidth = 5;
+
+    element.addEventListener("click", () => {
+      if (element.children[0].children[0].style.fill == "white") {
+        element.children[0].children[0].style.fill = "black";
+      } else {
+        element.children[0].children[0].style.fill = "white";
+      }
+    });
+  }
+}
+
+setBar(document.getElementById("lifebarbar"));
+setBar(document.getElementById("sanitybarbar"));
+
 function loadSheet() {
   let char = sheetData.character;
 
@@ -177,6 +197,14 @@ function loadSheet() {
 
   for (let i = 0; i < char.stats.destiny; i++) {
     destinyDiv.children[i].click();
+  }
+
+  for (let i = 0; i < char.stats.life; i++) {
+    document.getElementById("lifebarbar").getElementsByTagName("a")[i].click();
+  }
+
+  for (let i = 0; i < char.stats.sanity; i++) {
+    document.getElementById("sanitybarbar").getElementsByTagName("a")[i].click();
   }
 
   allAbilities = document.querySelectorAll("input[type='checkbox']");
@@ -288,6 +316,22 @@ function updateSheet() {
     }
   }
   sheetData.character.stats.destiny = dCounter;
+
+  lCounter = 0;
+  for (let i = 0; i < document.getElementById("lifebarbar").getElementsByTagName("a").length; i++) {
+    if (document.getElementById("lifebarbar").getElementsByTagName("a")[i].children[0].children[0].style.fill == "black") {
+      lCounter++;
+    }
+  }
+  sheetData.character.stats.life = lCounter;
+
+  sCounter = 0;
+  for (let i = 0; i < document.getElementById("sanitybarbar").getElementsByTagName("a").length; i++) {
+    if (document.getElementById("sanitybarbar").getElementsByTagName("a")[i].children[0].children[0].style.fill == "black") {
+      sCounter++;
+    }
+  }
+  sheetData.character.stats.sanity = sCounter;
 }
 
 function saveSheet() {
