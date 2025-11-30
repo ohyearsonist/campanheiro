@@ -36,6 +36,11 @@ input {
   text-align: left;
 }
 
+textarea {
+  font-family: "Neuton";
+  font-size: 1em;
+}
+
 #intro,
 main {
   display: flex;
@@ -399,6 +404,18 @@ main span {
   outline: none;
   resize: none;
   field-sizing: content;
+}
+
+#inventory {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+#inventory div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
 }
 
 #campaign {

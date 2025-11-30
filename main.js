@@ -134,6 +134,9 @@ fileInput.onchange = () => {
 };
 
 function setField(field, value) {
+  if (value == "") {
+    value = "X";
+  }
   document.getElementById(field).value = value;
 }
 
@@ -204,7 +207,10 @@ function loadSheet() {
   }
 
   for (let i = 0; i < char.stats.sanity; i++) {
-    document.getElementById("sanitybarbar").getElementsByTagName("a")[i].click();
+    document
+      .getElementById("sanitybarbar")
+      .getElementsByTagName("a")
+      [i].click();
   }
 
   allAbilities = document.querySelectorAll("input[type='checkbox']");
@@ -226,10 +232,39 @@ function loadSheet() {
     t.appendChild(title);
 
     let desc = document.createElement("textarea");
+    if (sheetData.character.talents[e].desc == "") {
+      sheetData.character.talents[e].desc = "X";
+    }
     desc.value = sheetData.character.talents[e].desc;
     t.appendChild(desc);
 
     document.getElementById("talents").appendChild(t);
+  });
+
+  Object.keys(sheetData.character.inventory).forEach((e) => {
+    let t = document.createElement("div");
+
+    let title = document.createElement("input");
+    title.type = "text";
+    title.value = sheetData.character.inventory[e].item;
+    title.style = "font-weight: bold;";
+    t.appendChild(title);
+
+    let category = document.createElement("input");
+    category.type = "text";
+    category.value = sheetData.character.inventory[e].category;
+    category.style = "font-style: italic;";
+    t.appendChild(category);
+
+    let desc = document.createElement("input");
+    desc.type = "text";
+    if (sheetData.character.inventory[e].desc == "") {
+      sheetData.character.inventory[e].desc = "X";
+    }
+    desc.value = sheetData.character.inventory[e].desc;
+    t.appendChild(desc);
+
+    document.getElementById("inventory").appendChild(t);
   });
 
   setField("campGM", sheetData.campaign.GM);
@@ -318,16 +353,31 @@ function updateSheet() {
   sheetData.character.stats.destiny = dCounter;
 
   lCounter = 0;
-  for (let i = 0; i < document.getElementById("lifebarbar").getElementsByTagName("a").length; i++) {
-    if (document.getElementById("lifebarbar").getElementsByTagName("a")[i].children[0].children[0].style.fill == "black") {
+  for (
+    let i = 0;
+    i < document.getElementById("lifebarbar").getElementsByTagName("a").length;
+    i++
+  ) {
+    if (
+      document.getElementById("lifebarbar").getElementsByTagName("a")[i]
+        .children[0].children[0].style.fill == "black"
+    ) {
       lCounter++;
     }
   }
   sheetData.character.stats.life = lCounter;
 
   sCounter = 0;
-  for (let i = 0; i < document.getElementById("sanitybarbar").getElementsByTagName("a").length; i++) {
-    if (document.getElementById("sanitybarbar").getElementsByTagName("a")[i].children[0].children[0].style.fill == "black") {
+  for (
+    let i = 0;
+    i <
+    document.getElementById("sanitybarbar").getElementsByTagName("a").length;
+    i++
+  ) {
+    if (
+      document.getElementById("sanitybarbar").getElementsByTagName("a")[i]
+        .children[0].children[0].style.fill == "black"
+    ) {
       sCounter++;
     }
   }
