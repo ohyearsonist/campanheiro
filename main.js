@@ -105,7 +105,7 @@ createItemBtn.addEventListener("click", () => {
   category.type = "text";
   category.value = "Categoria";
   category.style = "font-style: italic;";
-  t.appendChild(title);
+  t.appendChild(category);
 
   let desc = document.createElement("input");
   desc.type = "text";
@@ -135,6 +135,25 @@ createItemBtn.addEventListener("click", () => {
   newItem.desc = desc.value;
   newItem.category = category.value;
   sheetData.character.inventory.push(newItem);
+
+  newItem.item.addEventListener("input", resizeInput);
+  newItem.item.addEventListener("input", () => {
+    if (!alteredElements.includes(i)) {
+      alteredElements.push(i);
+    }
+  });
+  newItem.desc.addEventListener("input", resizeInput);
+  newItem.desc.addEventListener("input", () => {
+    if (!alteredElements.includes(i)) {
+      alteredElements.push(i);
+    }
+  });
+  newItem.category.addEventListener("input", resizeInput);
+  newItem.category.addEventListener("input", () => {
+    if (!alteredElements.includes(i)) {
+      alteredElements.push(i);
+    }
+  });
 
   document.getElementById("inventory").appendChild(t);
 });
@@ -172,6 +191,19 @@ createTalentBtn.addEventListener("click", () => {
   newTalent.title = title.value;
   newTalent.desc = desc.value;
   sheetData.character.talents.push(newTalent);
+
+  newTalent.title.addEventListener("input", resizeInput);
+  newTalent.title.addEventListener("input", () => {
+    if (!alteredElements.includes(i)) {
+      alteredElements.push(i);
+    }
+  });
+  newTalent.desc.addEventListener("input", resizeInput);
+  newTalent.desc.addEventListener("input", () => {
+    if (!alteredElements.includes(i)) {
+      alteredElements.push(i);
+    }
+  });
 
   document.getElementById("talents").appendChild(t);
 });
