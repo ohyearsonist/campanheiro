@@ -136,22 +136,22 @@ createItemBtn.addEventListener("click", () => {
   newItem.category = category.value;
   sheetData.character.inventory.push(newItem);
 
-  newItem.item.addEventListener("input", resizeInput);
-  newItem.item.addEventListener("input", () => {
-    if (!alteredElements.includes(i)) {
-      alteredElements.push(i);
+  title.addEventListener("input", resizeInput);
+  title.addEventListener("input", () => {
+    if (!alteredElements.includes(title)) {
+      alteredElements.push(title);
     }
   });
-  newItem.desc.addEventListener("input", resizeInput);
-  newItem.desc.addEventListener("input", () => {
-    if (!alteredElements.includes(i)) {
-      alteredElements.push(i);
+  desc.addEventListener("input", resizeInput);
+  desc.addEventListener("input", () => {
+    if (!alteredElements.includes(desc)) {
+      alteredElements.push(desc);
     }
   });
-  newItem.category.addEventListener("input", resizeInput);
-  newItem.category.addEventListener("input", () => {
-    if (!alteredElements.includes(i)) {
-      alteredElements.push(i);
+  category.addEventListener("input", resizeInput);
+  category.addEventListener("input", () => {
+    if (!alteredElements.includes(category)) {
+      alteredElements.push(category);
     }
   });
 
@@ -192,16 +192,16 @@ createTalentBtn.addEventListener("click", () => {
   newTalent.desc = desc.value;
   sheetData.character.talents.push(newTalent);
 
-  newTalent.title.addEventListener("input", resizeInput);
-  newTalent.title.addEventListener("input", () => {
-    if (!alteredElements.includes(i)) {
-      alteredElements.push(i);
+  title.addEventListener("input", resizeInput);
+  title.addEventListener("input", () => {
+    if (!alteredElements.includes(title)) {
+      alteredElements.push(title);
     }
   });
-  newTalent.desc.addEventListener("input", resizeInput);
-  newTalent.desc.addEventListener("input", () => {
-    if (!alteredElements.includes(i)) {
-      alteredElements.push(i);
+  desc.addEventListener("input", resizeInput);
+  desc.addEventListener("input", () => {
+    if (!alteredElements.includes(desc)) {
+      alteredElements.push(desc);
     }
   });
 
@@ -355,6 +355,19 @@ function loadSheet() {
     desc.value = sheetData.character.talents[e].desc;
     t.appendChild(desc);
 
+    title.addEventListener("input", resizeInput);
+    title.addEventListener("input", () => {
+      if (!alteredElements.includes(title)) {
+        alteredElements.push(title);
+      }
+    });
+    desc.addEventListener("input", resizeInput);
+    desc.addEventListener("input", () => {
+      if (!alteredElements.includes(desc)) {
+        alteredElements.push(desc);
+      }
+    });
+
     let btn = document.createElement("button");
     btn.innerHTML = "Apagar";
     btn.className = "deleteBtn";
@@ -396,6 +409,25 @@ function loadSheet() {
     desc.value = sheetData.character.inventory[e].desc;
     t.appendChild(desc);
 
+    title.addEventListener("input", resizeInput);
+    title.addEventListener("input", () => {
+      if (!alteredElements.includes(title)) {
+        alteredElements.push(title);
+      }
+    });
+    category.addEventListener("input", resizeInput);
+    category.addEventListener("input", () => {
+      if (!alteredElements.includes(category)) {
+        alteredElements.push(category);
+      }
+    });
+    desc.addEventListener("input", resizeInput);
+    desc.addEventListener("input", () => {
+      if (!alteredElements.includes(desc)) {
+        alteredElements.push(desc);
+      }
+    });
+
     let btn = document.createElement("button");
     btn.innerHTML = "Apagar";
     btn.className = "deleteBtn";
@@ -430,23 +462,7 @@ saveButton.addEventListener("click", saveSheet);
 sendButton.addEventListener("click", sendSheet);
 
 function sendSheet() {
-  updateSheet();
-  let link = document.createElement("a");
-  link.href =
-    "mailto:" +
-    (sheetData.campaign.GMsEmail +
-      "?subject=" +
-      sheetData.campaign.name +
-      "%2C%20" +
-      sheetData.character.name +
-      "%20-%20Ficha%20atualizada&body=Ol%C3%A1%20" +
-      sheetData.campaign.GM +
-      "!%0A%0AEu%20atualizei%20minha%20ficha%20de%20" +
-      sheetData.campaign.name +
-      "%2C%20e%20aqui%20est%C3%A1%20ela%20em%20formato%20.json.%20Boa%20mestreagem!%0A%0A---%0A%0AN%C3%83O%20MEXER%20A%20PARTIR%20DESSE%20PONTO!%0A%0A" +
-      JSON.stringify(sheetData).replace(/\n/g, "").replace(/:/g, "%3A"));
-  console.log(link.href);
-  link.click();
+  alert("Desculpe, essa funcionalidade ainda não está disponível.")
 }
 
 function download(data, filename, type) {
@@ -469,6 +485,15 @@ function download(data, filename, type) {
   }
 }
 
+function index(el) {
+    if (!el) return -1;
+    var i = 0;
+    do {
+        i++;
+    } while (el = el.previousElementSibling);
+    return i - 1;
+}
+
 function updateSheet() {
   for (const i in alteredElements) {
     let property = (alteredElements[i].id + " ").slice(4, -1).toLowerCase();
@@ -478,6 +503,20 @@ function updateSheet() {
       sheetData["character"]["stats"][property] = alteredElements[i].value;
     } else if (alteredElements[i].id.slice(0, 4) == "camp") {
       sheetData["campaign"][property] = alteredElements[i].value;
+    } else if (alteredElements[i].parentNode.parentNode.id ==  "talents") {
+      if (alteredElements[i].nodeName == "INPUT") {
+        sheetData["character"]["talents"][index(alteredElements[i].parentNode) - 1]["title"] = alteredElements[i].value;
+      } else {
+        sheetData["character"]["talents"][index(alteredElements[i].parentNode) - 1]["desc"] = alteredElements[i].value;
+      }
+    } else if (alteredElements[i].parentNode.parentNode.id == "inventory") {
+      if (index(alteredElements[i]) == 0) {
+        sheetData["character"]["inventory"][index(alteredElements[i].parentNode) - 1]["item"] = alteredElements[i].value;
+      } else if (index(alteredElements[i]) == 1) {
+        sheetData["character"]["inventory"][index(alteredElements[i].parentNode) - 1]["category"] = alteredElements[i].value;
+      } else if (index(alteredElements[i]) == 2) {
+        sheetData["character"]["inventory"][index(alteredElements[i].parentNode) - 1]["desc"] = alteredElements[i].value;
+      }
     }
   }
 
