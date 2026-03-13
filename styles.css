@@ -39,6 +39,7 @@ input {
 textarea {
   font-family: "Neuton";
   font-size: 1em;
+  max-size: 70vw !important;
 }
 
 #intro,
